@@ -15996,6 +15996,9 @@ print(f'asizeof   ():         {asizeof.asizeof(())} байт')        # -> asize
  SSH (Secure Shell) С С АШ — это протокол для безопасного удаленного доступа к другим компьютерам, позволяющий шифровать
  данные и обеспечивать защищенное подключение.
 
+ -- Через терминал подключение по SSH к СЕРВЕРУ --
+ SSH tech_deleloper@tvlds-sapo0126
+
  Notepad++
  Plugins -> JsonFormat -> JsonViewer
 
