@@ -13,6 +13,9 @@ import types
 import re
 import more_itertools
 
+#  SyntaxWarning: invalid escape sequence - ошибка связанная с многострочной строкой используем r перед строкой r''' '''
+
+
 
 # --- ЗРИ В КОРЕНЬ ПРОСТО ПОСМОТРЕТЬ ---
 
@@ -1380,7 +1383,7 @@ head = [0, 3, 1, 0, 4, 5, 2, 0]
 
 
 # Разделить по Нулям(0) и получить сумму  Merge Nodes in Between Zeros
-r"""
+"""
 head = [0, 3, 1, 0, 4, 5, 2, 0]
 
 def mergeNodes(head):

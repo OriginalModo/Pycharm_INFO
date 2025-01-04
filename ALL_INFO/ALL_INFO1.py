@@ -16087,4 +16087,6 @@ print(f'asizeof   ():         {asizeof.asizeof(())} байт')        # -> asize
 
  Classic UI  - Plugin для Pycharm pro  (Чтобы вернуть старый интерфейс)
 
+ SyntaxWarning: invalid escape sequence - ошибка связанная с многострочной строкой используем r перед строкой r''' '''
+
 """
