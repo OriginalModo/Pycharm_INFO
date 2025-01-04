@@ -15997,7 +15997,8 @@ print(f'asizeof   ():         {asizeof.asizeof(())} байт')        # -> asize
  данные и обеспечивать защищенное подключение.
 
  -- Через терминал подключение по SSH к СЕРВЕРУ --
- SSH tech_deleloper@tvlds-sapo0126
+ SSH tech_deleloper14@tvlds-0126      # По ХОСТУ
+ SSH tech_deleloper14@10.10.207.111   # По ПРОКСИ
 
  Notepad++
  Plugins -> JsonFormat -> JsonViewer
