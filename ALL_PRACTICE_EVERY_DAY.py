@@ -308,6 +308,158 @@ for f in fun:
 
 
 
+
+
+# Затраты памяти и времени Python   memory_profiler  ПРОСТО ПОСМОТРЕТЬ!!!   В конце пример profile ПОСМОТРИ!!!
+"""
+--- Затраты памяти и времени на выполнение append и списковое включение (list comprehensions) memory_profiler ---
+
+#  В общем случае, списковое включение (list comprehension) обычно потребляет меньше памяти,
+#  чем использование метода append, потому что оно создает список в одном непрерывном блоке памяти, тогда как метод
+#  append может потребовать больше перераспределений памяти, если список растет.
+
+from memory_profiler import memory_usage, profile
+
+# Функция с использованием append
+def create_list_append():
+    l = []
+    for i in range(100_000):
+        l.append(i * 2)
+    return l
+
+# Функция с использованием спискового включения
+def create_list_comprehension():
+    return [i * 2 for i in range(100_000)]
+
+# Замер памяти
+def memory_usage_test():
+    # Замер памяти для append
+    append_mem_usage = memory_usage((create_list_append, ))
+    print(f"Peak memory usage for append: {max(append_mem_usage) - min(append_mem_usage)} MiB")
+
+    # Замер памяти для спискового включения
+    comprehension_mem_usage = memory_usage((create_list_comprehension, ))
+    print(f"Peak memory usage for comprehension: {max(comprehension_mem_usage) - min(comprehension_mem_usage)} MiB")
+
+@profile
+def profile_memory():
+    create_list_append()
+    create_list_comprehension()
+
+# Запуск теста
+if __name__ == '__main__':
+    memory_usage_test()
+    profile_memory()
+
+# Выводы Всегда разные проверь сам!!!                                                       <-----   <-----
+# Peak memory usage for append:        1.59375 MiB
+# Peak memory usage for comprehension: 1.37109375 MiB
+
+
+# Line #    Mem usage    Increment  Occurrences   Line Contents
+# =============================================================
+#   1076     22.1 MiB     22.1 MiB           1   @profile
+#   1077                                         def profile_memory():
+#   1078     22.4 MiB      0.3 MiB           1       create_list_append()
+#   1079     22.4 MiB      0.0 MiB           1       create_list_comprehension()
+
+
+
+# Легкий пример как использовать profile                                                      <-----   <-----
+from memory_profiler import profile
+
+@profile
+def my_function():
+    a = [i for i in range(100000)]
+    b = [i * 2 for i in a]
+    return b
+
+if __name__ == "__main__":
+    my_function()
+
+# Line #    Mem usage    Increment  Occurrences   Line Contents
+# =============================================================
+#   1052     20.9 MiB     20.9 MiB           1   @profile
+#   1053                                         def my_function():
+#   1054     22.9 MiB      2.0 MiB      100001       a = [i for i in range(100000)]
+#   1055     25.1 MiB  -1819.1 MiB      100001       b = [i * 2 for i in a]
+#   1056     25.1 MiB      0.0 MiB           1       return b
+
+
+
+# Более того даже если мы создадим список без добавления (append), он всеравно будет занимать больше памяти чем кортеж
+# Потому что списки хранят дополнитулью информацию о своем текущем состоянии, чтобы эффективно изменять размер <------
+# Дополнительная информация занимает мало места (порядка одного дополнительного элемента) однако при использовании
+# миллиона списков мы начинаем чувствовать разницу!                                                            <------
+
+import timeit
+import sys
+
+# Функции для создания списка и кортежа
+def create_list():
+    return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+def create_tuple():
+    return (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+# Замер времени
+list_time = timeit.timeit(create_list, number=1000000)
+tuple_time = timeit.timeit(create_tuple, number=1000000)
+
+# Размеры
+list_size = sys.getsizeof(create_list())
+tuple_size = sys.getsizeof(create_tuple())
+
+# Вывод результатов
+print(f'Время создания списка: {list_time:.3f} секунд')    # ->  Время создания списка:  0.147 секунд
+print(f'Время создания кортежа: {tuple_time:.3f} секунд')  # ->  Время создания кортежа: 0.078 секунд
+print(f'Размер списка: {list_size} байт')                  # ->  Размер списка:          68 байт
+print(f'Размер кортежа: {tuple_size} байт')                # ->  Размер кортежа:         60 байт
+"""
+
+
+
+
+# Вычисляем, сколько оперативной памяти используем!   ПРОСТО ПОСМОТРЕТЬ!!!
+"""
+-- Вычисляем, сколько оперативной памяти используем!--
+
+memit берет данные об использовании ОЗУ от оперативной системы, а asizeof запрашивает у объектов их размер(который может
+быть сообщен неверно). Обычно asizeof работает медленнее, чем memit, но asizeof полезна при анализе небольших объектов
+Функция memit, вероятно, более подходит для реальных приложений, поскольку измеряет потребление памяти точнее (не на
+основе предположений)
+
+
+# memory_usage позволяет более точно оценить потребление памяти в реальном времени, а asizeof может быть полезен для
+# анализа небольших объектов, когда вам нужно измерить их размер более детально.
+
+from pympler.asizeof import asizeof                                                 <-----   <----- Интересный импорт
+
+# Создание списка
+my_list = [i for i in range(1000000)]
+
+# Измерение размера объекта
+size = asizeof(my_list)
+print(f"Size of my_list: {size} bytes")                # -> Size of my_list: 20224368 bytes
+
+
+
+from memory_profiler import memory_usage
+
+def my_function():
+    return [i for i in range(1000000)]
+
+if __name__ == '__main__':
+    # Измерение использования памяти
+    mem_usage = memory_usage(my_function)
+    print(f"Peak Memory Usage: {max(mem_usage)} MiB")  # -> Peak Memory Usage: 79.70703125 MiB
+
+"""
+
+
+
+
+
 # Замеры размеров структур Python  ПРОСТО ПОСМОТРЕТЬ!!!
 """
  --- Замеры размеров Python ---
@@ -1383,7 +1535,7 @@ head = [0, 3, 1, 0, 4, 5, 2, 0]
 
 
 # Разделить по Нулям(0) и получить сумму  Merge Nodes in Between Zeros
-"""
+r"""
 head = [0, 3, 1, 0, 4, 5, 2, 0]
 
 def mergeNodes(head):
@@ -2533,6 +2685,42 @@ if __name__ == '__main__':
     assert my_sum([2, 2]) == 4
     assert my_sum([1, 2, 3]) == 6
 """
+
+
+
+
+# Использовать  from memory_profiler import memory_usage   и   from pympler.asizeof import asizeof
+
+
+
+
+
+
+
+# Ответ Использовать  from memory_profiler import memory_usage   и   from pympler.asizeof import asizeof
+"""
+from memory_profiler import memory_usage
+
+def my_function():
+    return [i for i in range(1000000)]
+
+if __name__ == '__main__':
+    # Измерение использования памяти
+    mem_usage = memory_usage(my_function)
+    print(f"Peak Memory Usage: {max(mem_usage)} MiB")  # -> Peak Memory Usage: 79.70703125 MiB
+    
+    
+from pympler.asizeof import asizeof                                                 <-----   <----- Интересный импорт
+
+# Создание списка
+my_list = [i for i in range(1000000)]
+
+# Измерение размера объекта
+size = asizeof(my_list)
+print(f"Size of my_list: {size} bytes")                # -> Size of my_list: 20224368 bytes
+"""
+
+
 
 
 # Использовать __slots__ Написать класс  no_slots/with_slots  Замерить размер структур  asizeof.asizeof/sys.getsizeof
@@ -5008,6 +5196,8 @@ target = 9
 
 
 
+
+
 # Ответ БЕЗ ФУНКЦИИ  Написать Алгоритм БИНАРНОГО поиска на Python  O(log n)   без конца делит область поиска пополам.
 # Важно отметить, что массив должен быть ОТСОРТИРОВАН для применения бинарного поиска.
 """
@@ -5074,6 +5264,25 @@ def binary_search(arr, target):
 
 
 print(binary_search(d, target))  # -> 8
+
+
+
+# Интересный вариант из книги   High Performance Python                                          <-----
+def binary_search(needle, haystack):
+    haystack = sorted(haystack)
+    imin, imax = 0, len(haystack)
+    while True:
+        if imin > imax:
+            return -1
+        midpoint = (imin + imax) // 2
+        if haystack[midpoint] > needle:
+            imax = midpoint
+        elif haystack[midpoint] < needle:
+            imin = midpoint + 1
+        else:
+            return midpoint
+
+print(binary_search(target, d))  # -> 8
 """
 
 
@@ -5082,6 +5291,7 @@ print(binary_search(d, target))  # -> 8
 
 # Задача с собеседования
 # Написать Quick Sort/Быстрая сортировка
+
 
 
 
@@ -5179,7 +5389,6 @@ print("Отсортированный массив:", sorted_arr)  # -> Отсо
 
 
 
-
 # 1) Сортировка пузырьком (Bubble Sort)    Время: O(n²) в худшем и среднем случаях, O(n) в лучшем.   Пространство: O(1)
 """
 # Тоже самое                                            # Тоже самое
@@ -5241,6 +5450,8 @@ print("(Selection Sort):", sorted_arr)  # -> (Selection Sort): [11, 12, 22, 25, 
 
 
 
+
+
 # 3) Сортировка вставками (Insertion Sort)    Время: O(n²) в худшем случае, O(n) в лучшем.   Пространство: O(1)
 """
 def insertion_sort(arr):
@@ -5263,6 +5474,7 @@ print("(Insertion Sort):", sorted_arr)  # -> (Insertion Sort): [11, 12, 22, 25, 
 
 # 4) Написать Быстрая сортировка (Quick Sort)
 # O(n log n) в среднем случае, O(n²) в худшем. Пространство: O(log n) для рекурсии.
+
 
 
 
@@ -5316,6 +5528,7 @@ def quick_sort(lst):
 
 
 
+
 # 5) Сортировка слиянием (Merge Sort)    Время: O(n log n) во всех случаях.    Пространство: O(n)
 """
                                              # Интересный аналог функции merge_sort       
@@ -5357,6 +5570,8 @@ print("(Merge Sort):", sorted_arr)  # -> (Merge Sort): [11, 12, 22, 25, 34, 64, 
 
 
 
+
+
 # 6) Пирамидальная сортировка (Heap Sort)     Время: O(n log n) во всех случаях.  Пространство: O(1)
 """
 def heapify(arr, n, i):
@@ -5390,6 +5605,8 @@ print("(Heap Sort):", sorted_arr)  # -> (Heap Sort): [11, 12, 22, 25, 64]
 
 # 7) Написать Тим-сорт (TimSort)
 # Время: O(n log n) в среднем, O(n) в лучшем случае.  Пространство: O(n)
+
+
 
 
 
@@ -5500,6 +5717,7 @@ print("(Shell Sort):", sorted_arr)  # -> (Shell Sort): [11, 12, 22, 25, 64]
 
 
 
+
 # 9) Сортировка битом (Radix Sort)     Время: O(nk), где k — количество разрядов.  Пространство: O(n + k)
 """
 def counting_sort_for_radix(arr, exp):
@@ -5543,6 +5761,7 @@ print("(Radix Sort):", sorted_arr)  # -> (Radix Sort): [11, 12, 22, 25, 64]
 
 
 
+
 # 10) Сортировка подсчётом (Counting Sort)  Время: O(n + k), где k — максимальное значение в массиве. Пространство: O(k)
 """
 Отличие заключается в том, сохраняется ли порядок одинаковых элементов после сортировки.  УСТРОЙЧИВАЯ vs НЕ УСТРОЙЧИВАЯ  
@@ -5571,6 +5790,9 @@ print("(Counting Sort):", sorted_arr)  # -> (Counting Sort): [11, 12, 22, 25, 64
 
 # 11) Написать Сортировка по ведрам (Bucket Sort):
 # Время: O(n + k) для равномерно распределенных данных, где k — количество ведер. Пространство: O(n + k)
+
+
+
 
 
 
