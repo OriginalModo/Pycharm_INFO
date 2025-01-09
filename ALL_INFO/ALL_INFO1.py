@@ -4771,6 +4771,8 @@ with open('my_testik.txt', mode='r') as file: # -> режимы:   w, w+, wb, wb
  Одинарные кавычки '' в json НЕ работают нужны  двойные ""  также null false true с маленькой и без лишних ,     <-----
  Ctrl+Alt+L чтобы отформатировать json и увидеть вложенности
 
+ Black — это автоматический форматировщик кода для Python.  pip install black                                    <-----
+
  Много параметров dump, dumps, load, loads !                                                                     <-----
 
  json.dump(obj, fp, *, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, cls=None, indent=None,
