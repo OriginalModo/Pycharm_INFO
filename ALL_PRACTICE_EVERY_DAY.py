@@ -5352,7 +5352,6 @@ def binary_search(arr, target):
     pass
 
 
-
 # print(binary_search(d, target))  # -> 8
 
 
@@ -5409,8 +5408,6 @@ print(binary_search(target, d))  # -> 8
 
 # Задача с собеседования
 # Написать Quick Sort/Быстрая сортировка
-
-
 
 
 
@@ -5510,8 +5507,6 @@ print("Отсортированный массив:", sorted_arr)  # -> Отсо
 
 
 
-
-
 # 1) Сортировка пузырьком (Bubble Sort)    Время: O(n²) в худшем и среднем случаях, O(n) в лучшем.   Пространство: O(1)
 """
 # Тоже самое                                            # Тоже самое
@@ -5538,6 +5533,7 @@ print("(Bubble Sort):", sorted_arr) # -> (Bubble Sort): [11, 12, 22, 25, 34, 64,
 
 # 2) Написать Сортировку выбором (Selection Sort)
 # Время: O(n²) во всех случаях.   Пространство: O(1)
+
 
 
 
@@ -5600,6 +5596,7 @@ print("(Insertion Sort):", sorted_arr)  # -> (Insertion Sort): [11, 12, 22, 25, 
 
 
 
+
 # 4) Быстрая сортировка (Quick Sort)   O(n log n) в среднем случае, O(n²) в худшем. Пространство: O(log n) для рекурсии.
 """
 def quick_sort(arr):
@@ -5640,6 +5637,7 @@ def quick_sort(lst):
 
 # 5) Написать Сортировку слиянием (Merge Sort)
 # Время: O(n log n) во всех случаях.    Пространство: O(n)
+
 
 
 
@@ -5688,7 +5686,6 @@ print("(Merge Sort):", sorted_arr)  # -> (Merge Sort): [11, 12, 22, 25, 34, 64, 
 
 
 
-
 # 6) Пирамидальная сортировка (Heap Sort)     Время: O(n log n) во всех случаях.  Пространство: O(1)
 """
 def heapify(arr, n, i):
@@ -5722,7 +5719,6 @@ print("(Heap Sort):", sorted_arr)  # -> (Heap Sort): [11, 12, 22, 25, 64]
 
 # 7) Написать Тим-сорт (TimSort)
 # Время: O(n log n) в среднем, O(n) в лучшем случае.  Пространство: O(n)
-
 
 
 
@@ -5836,7 +5832,6 @@ print("(Shell Sort):", sorted_arr)  # -> (Shell Sort): [11, 12, 22, 25, 64]
 
 
 
-
 # 9) Сортировка битом (Radix Sort)     Время: O(nk), где k — количество разрядов.  Пространство: O(n + k)
 """
 def counting_sort_for_radix(arr, exp):
@@ -5873,7 +5868,6 @@ print("(Radix Sort):", sorted_arr)  # -> (Radix Sort): [11, 12, 22, 25, 64]
 
 # 10) Написать Сортировка подсчётом (Counting Sort)
 # Время: O(n + k), где k — максимальное значение в массиве. Пространство: O(k)
-
 
 
 
