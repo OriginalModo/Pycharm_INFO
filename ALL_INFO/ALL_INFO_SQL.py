@@ -592,7 +592,7 @@
  | Стихотворения и поэмы | Есенин С.А.      | 15     |
  +-----------------------+------------------+--------+
 
- Оператор WITH - Псевдоним
+ # Оператор WITH - Псевдоним
  WITH NEW_NAME AS (SELECT author , title, price FROM book)
     SELECT * from NEW_NAME
 
