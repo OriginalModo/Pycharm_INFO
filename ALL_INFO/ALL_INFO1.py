@@ -16487,6 +16487,8 @@ print(f'asizeof   ():         {asizeof.asizeof(())} байт')        # -> asize
 
  Black — это автоматический форматировщик кода для Python.  pip install black
 
+ Наводим номер строки жмем другой кнопкой мыши и выбираем   Annotate with Git Blame    -  Показать кто делал код
+
  SyntaxWarning: invalid escape sequence - ошибка связанная с многострочной строкой используем r перед строкой r''' '''
 
 """
