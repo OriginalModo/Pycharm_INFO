@@ -4180,6 +4180,7 @@ ________________________________________________________________________________
  getattr, list/dict/set Comprehensions, genexp, with open, lambda, import, built-in functions, f-string ...
 
 
+ Наводим на номер строки жмем другой кнопкой мыши и выбираем   Annotate with Git Blame    -  Показать кто делал код
 
  --- Какие есть ветки в Git ---
 
