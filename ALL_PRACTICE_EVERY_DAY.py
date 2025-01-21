@@ -11,7 +11,11 @@ import sys
 import time
 import types
 import re
+from itertools import count
+
 import more_itertools
+from mpmath.functions.functions import expm1
+from sympy.matrices.expressions.blockmatrix import bc_unpack
 
 #  SyntaxWarning: invalid escape sequence - ошибка связанная с многострочной строкой используем r перед строкой r''' '''
 
@@ -1626,6 +1630,10 @@ re.sub(r'(\w)\1+|\w', lambda x: f'{x[0][0]}{len(x[0])}', a)  # -> a4b2c1a2
 """
 
 
+
+
+
+
 # Так можно разделить легко  Повтори
 
 text = r'17383147371'
@@ -1640,6 +1648,7 @@ text = r'17383147371'
 
 
 
+# Ответ Так можно разделить легко  Повтори
 # Разделит число из тестовых данных на числа, в конце которых стоит единица. 1
 r"""
 text = r'17383147371'
@@ -1649,6 +1658,28 @@ print(re.findall(r'\d*1', text))   # -> ['17383147371']          Без ?
 """
 
 
+
+
+# Интересные квантификаторы  жадные НЕ жадные
+
+res = '12345'
+
+
+
+
+
+
+# Ответ Интересные квантификаторы  жадные НЕ жадные
+"""
+res = '12345'
+print(re.search(r'\d{,3}', res).group())  # -> 123
+print(re.search(r'\d{3,}', res).group())  # -> 12345
+print(re.search(r'\d{3,}?', res).group())  # -> 12345
+
+print(re.findall(r'\d{,3}', res))         # -> ['123', '45', '']
+print(re.findall(r'\d{3,}', res))         # -> ['12345']
+print(re.findall(r'\d{3,}?', res))        # -> ['123']
+"""
 
 # Классный пример Повтори   По сути это if...else в Регулярках
 
@@ -4516,7 +4547,17 @@ print(timeit.timeit('fibonacci__3(50)', globals=globals()))                     
 
 # Тоже самое но с setup()
 print(timeit.timeit('fibonacci__3(50)', setup="from __main__ import fibonacci__3"))  # -> 0.09871609997935593
+
+
+# Доп. решение sympy fibonacci
+from sympy import fibonacci
+print(fibonacci(50))                       # -> 12586269025 
+
+print(__import__('sympy').fibonacci(50))   # -> 12586269025  
 """
+
+
+
 
 
 
@@ -5314,7 +5355,6 @@ target = 9
 
 
 
-
 # Ответ БЕЗ ФУНКЦИИ  Написать Алгоритм БИНАРНОГО поиска на Python  O(log n)   без конца делит область поиска пополам.
 # Важно отметить, что массив должен быть ОТСОРТИРОВАН для применения бинарного поиска.
 """
@@ -5643,8 +5683,6 @@ def quick_sort(lst):
 
 
 
-
-
 # 5) Сортировка слиянием (Merge Sort)    Время: O(n log n) во всех случаях.    Пространство: O(n)
 """
                                              # Интересный аналог функции merge_sort       
@@ -5680,6 +5718,7 @@ print("(Merge Sort):", sorted_arr)  # -> (Merge Sort): [11, 12, 22, 25, 34, 64, 
 
 # 6) Написать Пирамидальная сортировка (Heap Sort)
 # Время: O(n log n) во всех случаях.  Пространство: O(1)
+
 
 
 
@@ -5796,8 +5835,6 @@ print("(Tim Sort):", sorted_arr)  # Ожидается: (Tim Sort): [11, 12, 22,
 
 
 
-
-
 # 8) Сортировка Шелла (Shell Sort)     Время: O(n²) в худшем, O(n log n) в среднем.  Пространство: O(1)
 """
 def shell_sort(arr):
@@ -5824,7 +5861,6 @@ print("(Shell Sort):", sorted_arr)  # -> (Shell Sort): [11, 12, 22, 25, 64]
 
 # 9) Написать Сортировка битом (Radix Sort)
 # Время: O(nk), где k — количество разрядов.  Пространство: O(n + k)
-
 
 
 
@@ -5874,7 +5910,6 @@ print("(Radix Sort):", sorted_arr)  # -> (Radix Sort): [11, 12, 22, 25, 64]
 
 
 
-
 # 10) Сортировка подсчётом (Counting Sort)  Время: O(n + k), где k — максимальное значение в массиве. Пространство: O(k)
 """
 Отличие заключается в том, сохраняется ли порядок одинаковых элементов после сортировки.  УСТРОЙЧИВАЯ vs НЕ УСТРОЙЧИВАЯ  
@@ -5903,6 +5938,7 @@ print("(Counting Sort):", sorted_arr)  # -> (Counting Sort): [11, 12, 22, 25, 64
 
 # 11) Написать Сортировка по ведрам (Bucket Sort):
 # Время: O(n + k) для равномерно распределенных данных, где k — количество ведер. Пространство: O(n + k)
+
 
 
 
