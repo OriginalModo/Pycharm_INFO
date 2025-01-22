@@ -15,6 +15,7 @@ from itertools import count
 
 import more_itertools
 from mpmath.functions.functions import expm1
+from mpmath.libmp.libintmath import ifac2
 from sympy.matrices.expressions.blockmatrix import bc_unpack
 
 #  SyntaxWarning: invalid escape sequence - ошибка связанная с многострочной строкой используем r перед строкой r''' '''
@@ -1670,7 +1671,7 @@ res = '12345'
 
 
 # Ответ Интересные квантификаторы  жадные НЕ жадные
-"""
+r"""
 res = '12345'
 print(re.search(r'\d{,3}', res).group())  # -> 123
 print(re.search(r'\d{3,}', res).group())  # -> 12345
@@ -5354,7 +5355,6 @@ target = 9
 
 
 
-
 # Ответ БЕЗ ФУНКЦИИ  Написать Алгоритм БИНАРНОГО поиска на Python  O(log n)   без конца делит область поиска пополам.
 # Важно отметить, что массив должен быть ОТСОРТИРОВАН для применения бинарного поиска.
 """
@@ -5540,7 +5540,6 @@ print("Отсортированный массив:", sorted_arr)  # -> Отсо
 
 # 1) Написать Сортировку пузырьком (Bubble Sort)
 # Время: O(n²) в худшем и среднем случаях, O(n) в лучшем.  Пространство: O(1)
-
 
 
 
@@ -5765,6 +5764,8 @@ print("(Heap Sort):", sorted_arr)  # -> (Heap Sort): [11, 12, 22, 25, 64]
 
 
 
+
+
 # 7) Тим-сорт (Tim Sort)     Время: O(n log n) в среднем, O(n) в лучшем случае.  Пространство: O(n)
 """
 def insertion_sort(arr, left, right):
@@ -5834,7 +5835,6 @@ print("(Tim Sort):", sorted_arr)  # Ожидается: (Tim Sort): [11, 12, 22,
 
 
 
-
 # 8) Сортировка Шелла (Shell Sort)     Время: O(n²) в худшем, O(n log n) в среднем.  Пространство: O(1)
 """
 def shell_sort(arr):
@@ -5861,7 +5861,6 @@ print("(Shell Sort):", sorted_arr)  # -> (Shell Sort): [11, 12, 22, 25, 64]
 
 # 9) Написать Сортировка битом (Radix Sort)
 # Время: O(nk), где k — количество разрядов.  Пространство: O(n + k)
-
 
 
 
