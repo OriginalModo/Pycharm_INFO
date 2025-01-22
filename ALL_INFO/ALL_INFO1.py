@@ -5097,6 +5097,20 @@ with open('my_testik.txt', mode='r') as file: # -> режимы:   w, w+, wb, wb
  from itertools import groupby, product, pairwise
 
 
+ # ПРАВИЛЬНОСТЬ ПОРЯДКА ИМПОРТОВ!!!                                                                 <-----
+ # Стандартные библиотеки
+ import datetime
+ import io
+ import re
+ from enum import Enum
+ from itertools import zip_longest
+ from typing import Any, Dict, List, Optional, Tuple
+
+ # Сторонние библиотеки
+ import pandas as pd
+ from pandas import DataFrame
+
+
  Контейнеры — Iterable, Sequence, Mapping, кастомные (самописные) и другие.
 
  increment «увеличение» - операция во многих языках программирования, увеличивающая значение переменной
@@ -6342,6 +6356,10 @@ with open('my_testik.txt', mode='r') as file: # -> режимы:   w, w+, wb, wb
  5) git rebase main
  6) git status
  7) git stash apply
+
+
+ Команда git rebase -i HEAD~4 используется в Git для интерактивного перебазирования (interactive rebasing)
+ последних 4 коммитов, находящихся в истории вашей текущей ветки. Вот более подробное объяснение:
 
 
  --- Работа с git на реальном проекте, используя PyCharm ---
