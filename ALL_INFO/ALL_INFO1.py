@@ -5097,18 +5097,36 @@ with open('my_testik.txt', mode='r') as file: # -> режимы:   w, w+, wb, wb
  from itertools import groupby, product, pairwise
 
 
- # ПРАВИЛЬНОСТЬ ПОРЯДКА ИМПОРТОВ!!!                                                                 <-----
- # Стандартные библиотеки
+ # Порядок импортов в вашем коде правильный и соответствует общепринятым рекомендациям PEP 8. Согласно этим
+ # рекомендациям, импорты следует группировать в следующем порядке:
+
+ # 1) Импорты стандартных библиотек.
+ # 2) Импорты сторонних библиотек.
+ # 3) Импорты собственных модулей.
+
+ # ПРИМЕР: ПРАВИЛЬНОСТЬ ПОРЯДКА ИМПОРТОВ!!!    РАЗДЕЛИТЬ ПРОБЕЛАМИ ГРУППЫ И СДЕЛАТЬ В АЛФАВИТНОМ ПОРЯДКЕ
+ # Внутри каждой группы импорты можно отсортировать в алфавитном порядке.
+
+ # Импорт стандартных библиотек
  import datetime
  import io
  import re
  from enum import Enum
- from itertools import zip_longest
+ from itertools import chain, zip_longest
  from typing import Any, Dict, List, Optional, Tuple
 
- # Сторонние библиотеки
+ # Импорт сторонних библиотек
+ import numpy as np
+ from numpy import average, median
  import pandas as pd
  from pandas import DataFrame
+ import requests
+
+ # Импорт собственных модулей
+ from mymodule import MyClass, my_function
+
+ # Вы правильно сгруппировали импорты и разделили их пустыми строками для улучшения читаемости.
+ Отсортирован в алфавитном порядке. Это делает код более  организованным и понятным.                            <-----
 
 
  Контейнеры — Iterable, Sequence, Mapping, кастомные (самописные) и другие.
