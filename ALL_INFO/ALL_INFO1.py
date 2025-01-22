@@ -5107,23 +5107,26 @@ with open('my_testik.txt', mode='r') as file: # -> режимы:   w, w+, wb, wb
  # ПРИМЕР: ПРАВИЛЬНОСТЬ ПОРЯДКА ИМПОРТОВ!!!    РАЗДЕЛИТЬ ПРОБЕЛАМИ ГРУППЫ И СДЕЛАТЬ В АЛФАВИТНОМ ПОРЯДКЕ
  # Внутри каждой группы импорты можно отсортировать в алфавитном порядке.
 
- # Импорт стандартных библиотек
- import datetime
- import io
- import re
- from enum import Enum
- from itertools import chain, zip_longest
- from typing import Any, Dict, List, Optional, Tuple
+ # Оба варианта допустимы!                                    # Оба варианта допустимы!
+ # Тоже самое                                                 # Тоже самое
+ # Импорт стандартных библиотек                               # Импорт стандартных библиотек
+ import datetime                                              import datetime
+ import io                                                    from datetime import datetime, timedelta   #     <-----
+ import re                                                    import io
+ from datetime import datetime, timedelta                     import re
+ from enum import Enum                                        from enum import Enum
+ from itertools import chain, zip_longest                     from itertools import chain, zip_longest
+ from typing import Any, Dict, List, Optional, Tuple          from typing import Any, Dict, List, Optional, Tuple
 
- # Импорт сторонних библиотек
- import numpy as np
- from numpy import average, median
- import pandas as pd
- from pandas import DataFrame
- import requests
+ # Импорт сторонних библиотек                                 # Импорт сторонних библиотек
+ import numpy as np                                           import numpy as np
+ from numpy import average, median                            from numpy import average, median
+ import pandas as pd                                          import pandas as pd
+ from pandas import DataFrame                                 from pandas import DataFrame
+ import requests                                              import requests
 
- # Импорт собственных модулей
- from mymodule import MyClass, my_function
+ # Импорт собственных модулей                                 # Импорт собственных модулей
+ from mymodule import MyClass, my_function                    from mymodule import MyClass, my_function
 
  # Вы правильно сгруппировали импорты и разделили их пустыми строками для улучшения читаемости.
  Отсортирован в алфавитном порядке. Это делает код более  организованным и понятным.                            <-----
