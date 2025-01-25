@@ -263,6 +263,125 @@ a_tuple[0] += [6]  # TypeError: 'tuple' object does not support item assignment
 
 
 
+# Переписить 20 способов вывести "Hello World!"
+
+
+
+
+
+
+# Ответ Переписить 20 способов вывести "Hello World!"
+# Каждый из этих способов выводит "Hello World!" разными методами и подходами. 20 СПОСОБОВ
+R"""
+# 1) Используя функцию print():
+print("Hello World!")                
+
+# 2) Используя sys.stdout.write():
+import sys
+sys.stdout.write("Hello World!")  # Добавляем '\n' для новой строки
+
+# 3) Используя f-строки:
+message = "Hello World!"
+print(f"{message}")
+
+# 4) Используя форматирование строк:
+message = "Hello World!"
+print("{}".format(message))
+
+# 5) Используя конкатенацию строк:
+print("Hello " + "World!")
+
+# 6) Используя join():
+print(" ".join(["Hello", "World!"]))
+
+# 7) Используя lambda-функцию:
+hello = lambda: print("Hello World!")
+hello()
+
+# 8) Используя класс:
+class Greeter:
+    def greet(self):
+        print("Hello World!")
+
+greeter = Greeter()
+greeter.greet()
+
+# 9) Используя обработчик исключений (try-except):
+try:
+    print("Hello World!")
+except Exception as e:
+    print(e)
+
+# 10) Используя функцию с возвращаемым значением:
+def get_message():
+    return "Hello World!"
+
+print(get_message())
+
+# 11) Используя метод __str__() класса:
+class HelloWorld:
+    def __str__(self):
+        return "Hello World!"
+
+hello_instance = HelloWorld()
+print(hello_instance)
+
+# 12) Используя генератор:
+hello_generator = (word for word in ["Hello", "World!"])
+print(" ".join(hello_generator))
+
+# 13) Используя декоратор:
+def hello_decorator(func):
+    def wrapper():
+        print("Hello World!")
+    return wrapper
+
+@hello_decorator
+def greet():
+    pass
+
+greet()
+
+# 14) Используя модуль logging:
+import logging
+logging.basicConfig(level=logging.INFO)
+logging.info("Hello World!")
+
+# 15) Используя функцию map():
+list(map(print, ["Hello", "World!"]))
+
+# 16) Используя функцию exec():
+exec('print("Hello World!")')
+
+# 17) Используя функцию input() (с имитацией ввода):
+input_message = input("Введите сообщение: ") if False else "Hello World!"
+print(input_message)
+
+# 18) Используя срезы строк:
+message = "Hello World!"
+print(message[:5], message[6:])
+
+# 19) Используя многопоточность:
+import threading
+
+def print_message():
+    print("Hello World!")
+
+thread = threading.Thread(target=print_message)
+thread.start()
+thread.join()
+
+# 20) Используя asyncio:
+import asyncio
+
+async def async_hello():
+    print("Hello World!")
+
+asyncio.run(async_hello())
+"""
+
+
+
 
 #  X5 Задача что выведет Данный код?    val - являются разными переменными.   Будет выведено  # -> 1
 def a():
@@ -5355,6 +5474,8 @@ target = 9
 
 
 
+
+
 # Ответ БЕЗ ФУНКЦИИ  Написать Алгоритм БИНАРНОГО поиска на Python  O(log n)   без конца делит область поиска пополам.
 # Важно отметить, что массив должен быть ОТСОРТИРОВАН для применения бинарного поиска.
 """
@@ -5546,6 +5667,7 @@ print("Отсортированный массив:", sorted_arr)  # -> Отсо
 
 
 
+
 # 1) Сортировка пузырьком (Bubble Sort)    Время: O(n²) в худшем и среднем случаях, O(n) в лучшем.   Пространство: O(1)
 """
 # Тоже самое                                            # Тоже самое
@@ -5577,8 +5699,6 @@ print("(Bubble Sort):", sorted_arr) # -> (Bubble Sort): [11, 12, 22, 25, 34, 64,
 
 
 
-
-
 # 2) Сортировка выбором (Selection Sort)  Время: O(n²) во всех случаях.   Пространство: O(1)
 """
 def selection_sort(arr):
@@ -5601,7 +5721,6 @@ print("(Selection Sort):", sorted_arr)  # -> (Selection Sort): [11, 12, 22, 25, 
 
 # 3) Написать Сортировку вставками (Insertion Sort)
 # Время: O(n²) в худшем случае, O(n) в лучшем.   Пространство: O(1)
-
 
 
 
@@ -5682,6 +5801,7 @@ def quick_sort(lst):
 
 
 
+
 # 5) Сортировка слиянием (Merge Sort)    Время: O(n log n) во всех случаях.    Пространство: O(n)
 """
                                              # Интересный аналог функции merge_sort       
@@ -5723,7 +5843,6 @@ print("(Merge Sort):", sorted_arr)  # -> (Merge Sort): [11, 12, 22, 25, 34, 64, 
 
 
 
-
 # 6) Пирамидальная сортировка (Heap Sort)     Время: O(n log n) во всех случаях.  Пространство: O(1)
 """
 def heapify(arr, n, i):
@@ -5757,8 +5876,6 @@ print("(Heap Sort):", sorted_arr)  # -> (Heap Sort): [11, 12, 22, 25, 64]
 
 # 7) Написать Тим-сорт (TimSort)
 # Время: O(n log n) в среднем, O(n) в лучшем случае.  Пространство: O(n)
-
-
 
 
 
@@ -5835,6 +5952,8 @@ print("(Tim Sort):", sorted_arr)  # Ожидается: (Tim Sort): [11, 12, 22,
 
 
 
+
+
 # 8) Сортировка Шелла (Shell Sort)     Время: O(n²) в худшем, O(n log n) в среднем.  Пространство: O(1)
 """
 def shell_sort(arr):
@@ -5861,6 +5980,7 @@ print("(Shell Sort):", sorted_arr)  # -> (Shell Sort): [11, 12, 22, 25, 64]
 
 # 9) Написать Сортировка битом (Radix Sort)
 # Время: O(nk), где k — количество разрядов.  Пространство: O(n + k)
+
 
 
 
@@ -5903,6 +6023,7 @@ print("(Radix Sort):", sorted_arr)  # -> (Radix Sort): [11, 12, 22, 25, 64]
 
 # 10) Написать Сортировка подсчётом (Counting Sort)
 # Время: O(n + k), где k — максимальное значение в массиве. Пространство: O(k)
+
 
 
 
@@ -5975,6 +6096,7 @@ def bucket_sort(arr):
  
     sorted_array = []
     for bucket in buckets:
+        # sorted_array.extend(insertion_sort(bucket))  # Тоже самое +=
         sorted_array += insertion_sort(bucket)
  
     return sorted_array
