@@ -5350,6 +5350,9 @@ with open('my_testik.txt', mode='r') as file: # -> режимы:   w, w+, wb, wb
 
  $env:Path -split ';'     - разбивает строку переменной окружения Path на массив строк, используя символ ; в качестве разделителя.
 
+ # Команда используется в PowerShell для добавления пути к установленному Python
+ [Environment]::SetEnvironmentVariable("Path", $Env:Path + ";C:\Program Files\Python312", [EnvironmentVariableTarget]::User)
+
  Ctrl + Z выйти из терминала или   exit()
 
 
@@ -5357,6 +5360,7 @@ with open('my_testik.txt', mode='r') as file: # -> режимы:   w, w+, wb, wb
  cd "имя имя"  - если между именами пробел
  cd "Абсолютный путь" - Сразу перейдем туда куда нужно
  Название_Диска: - чтобы сменить диск  - Примеры C:  D:  Только название диска и двоеточие в терминале(командной строке)
+
 
 
  Команды для Unix/Linux/macOS:
