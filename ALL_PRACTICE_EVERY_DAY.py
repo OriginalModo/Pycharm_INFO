@@ -5479,25 +5479,27 @@ target = 9
 # Ответ БЕЗ ФУНКЦИИ  Написать Алгоритм БИНАРНОГО поиска на Python  O(log n)   без конца делит область поиска пополам.
 # Важно отметить, что массив должен быть ОТСОРТИРОВАН для применения бинарного поиска.
 """
-d = [-1, -3, 2, 4, 5, 7, 8, 9]
-n = len(d)
-
-search_v = 9
-left, right = 0, n-1
-
-while left <= right:
-    middle = (left + right) // 2
-    v = d[middle]
+d = [-1, -3, 2, 4, 5, 7, 8, 9]                          
+n = len(d)                           
+                                     
+search_v = 9                         
+left, right = 0, n-1                  
+                                     
+while left <= right:                  
+    middle = (left + right) // 2                              
+    v = d[middle]                    
     if v == search_v:
-        print(v, middle)   # 9 7
-        break
-    elif v < search_v:
-        left = middle+1
-    elif v > search_v:
-        right = middle-1
+        # __import__('sys').stdout.write(f'{v} {middle}')  # 9 7   Тоже самое            
+        print(v, middle)   # 9 7                                                  
+        break            
+    elif v < search_v:                  
+        left = middle+1                    
+    elif v > search_v:                  
+        right = middle-1                        
 else:
-    print('Значение не найдено')
-    
+    # __import__('sys').stdout.write('Значение не найдено')  # Тоже самое                     
+    print('Значение не найдено')                             
+                                                
 # 9 7
 """
 
@@ -5514,6 +5516,9 @@ def binary_search(arr, target):
 
 
 # print(binary_search(d, target))  # -> 8
+# __import__('sys').stdout.write(str(binary_search(d, target)))  # -> 8   Тоже самое
+
+
 
 
 
@@ -5542,6 +5547,7 @@ def binary_search(arr, target):
 
 
 print(binary_search(d, target))  # -> 8
+__import__('sys').stdout.write(str(binary_search(d, target)))  # -> 8   Тоже самое
 
 
 
@@ -5561,6 +5567,7 @@ def binary_search(needle, haystack):
             return midpoint
 
 print(binary_search(target, d))  # -> 8
+__import__('sys').stdout.write(str(binary_search(target, d)))  # -> 8   Тоже самое
 """
 
 
@@ -5569,7 +5576,6 @@ print(binary_search(target, d))  # -> 8
 
 # Задача с собеседования
 # Написать Quick Sort/Быстрая сортировка
-
 
 
 
@@ -5602,7 +5608,7 @@ def quick_sort(arr):
 arr = [10, 7, 8, 9, 1, 5]
 sorted_arr = quick_sort(arr)
 print("Отсортированный массив:", sorted_arr)  # -> Отсортированный массив: [1, 5, 7, 8, 9, 10]
-
+__import__('sys').stdout.write('Отсортированный массив: ' + str(sorted_arr)) # -> Отсортированный массив: [1, 5, 7, 8, 9, 10]
 
 
 # Вариант 2: Опорный элемент — средний элемент массива
@@ -5666,8 +5672,6 @@ print("Отсортированный массив:", sorted_arr)  # -> Отсо
 
 
 
-
-
 # 1) Сортировка пузырьком (Bubble Sort)    Время: O(n²) в худшем и среднем случаях, O(n) в лучшем.   Пространство: O(1)
 """
 # Тоже самое                                            # Тоже самое
@@ -5687,13 +5691,17 @@ def bubble_sort(arr):                                   def bubble_sort(arr):
 # Пример использования
 arr = [64, 34, 25, 12, 22, 11, 90]
 sorted_arr = bubble_sort(arr)
-print("(Bubble Sort):", sorted_arr) # -> (Bubble Sort): [11, 12, 22, 25, 34, 64, 90]
+print("(Bubble Sort):", sorted_arr)                             # -> (Bubble Sort): [11, 12, 22, 25, 34, 64, 90]
+__import__('sys').stdout.write(f'(Bubble Sort): {sorted_arr}')  # -> (Bubble Sort): [11, 12, 22, 25, 34, 64, 90]
 """
 
 
 
 # 2) Написать Сортировку выбором (Selection Sort)
 # Время: O(n²) во всех случаях.   Пространство: O(1)
+
+
+
 
 
 
@@ -5714,13 +5722,16 @@ def selection_sort(arr):
 # Пример использования
 arr = [64, 25, 12, 22, 11]
 sorted_arr = selection_sort(arr)
-print("(Selection Sort):", sorted_arr)  # -> (Selection Sort): [11, 12, 22, 25, 64]
+print("(Selection Sort):", sorted_arr)                             # -> (Selection Sort): [11, 12, 22, 25, 64]
+__import__('sys').stdout.write(f'(Selection Sort): {sorted_arr}')  # -> (Selection Sort): [11, 12, 22, 25, 64]
 """
 
 
 
 # 3) Написать Сортировку вставками (Insertion Sort)
 # Время: O(n²) в худшем случае, O(n) в лучшем.   Пространство: O(1)
+
+
 
 
 
@@ -5741,7 +5752,8 @@ def insertion_sort(arr):
 # Пример использования
 arr = [64, 34, 25, 12, 22, 11]
 sorted_arr = insertion_sort(arr)
-print("(Insertion Sort):", sorted_arr)  # -> (Insertion Sort): [11, 12, 22, 25, 34, 64]
+print("(Insertion Sort):", sorted_arr)                             # -> (Insertion Sort): [11, 12, 22, 25, 34, 64]
+__import__('sys').stdout.write(f'(Insertion Sort): {sorted_arr}')  # -> (Insertion Sort): [11, 12, 22, 25, 34, 64]
 """
 
 
@@ -5771,8 +5783,8 @@ def quick_sort(arr):
 # Пример использования
 arr = [64, 34, 25, 12, 22, 11, 90]
 sorted_arr = quick_sort(arr)
-print("(Quick Sort):", sorted_arr)  # -> (Quick Sort): [11, 12, 22, 25, 34, 64, 90]
-
+print("(Quick Sort):", sorted_arr)                             # -> (Quick Sort): [11, 12, 22, 25, 34, 64, 90]
+__import__('sys').stdout.write(f'(Quick Sort): {sorted_arr}')  # -> (Quick Sort): [11, 12, 22, 25, 34, 64, 90]
 
 # Придумал свой вариант
 def quick_sort(lst):
@@ -5830,13 +5842,16 @@ def merge(left, right):
 # Пример использования
 arr = [64, 34, 25, 12, 22, 11, 90]
 sorted_arr = merge_sort(arr)
-print("(Merge Sort):", sorted_arr)  # -> (Merge Sort): [11, 12, 22, 25, 34, 64, 90]
+print("(Merge Sort):", sorted_arr)                             # -> (Merge Sort): [11, 12, 22, 25, 34, 64, 90]
+__import__('sys').stdout.write(f'(Merge Sort): {sorted_arr}')  # -> (Merge Sort): [11, 12, 22, 25, 34, 64, 90]
 """
 
 
 
 # 6) Написать Пирамидальная сортировка (Heap Sort)
 # Время: O(n log n) во всех случаях.  Пространство: O(1)
+
+
 
 
 
@@ -5869,13 +5884,15 @@ def heap_sort(arr):
 # Пример использования
 arr = [64, 25, 12, 22, 11]
 sorted_arr = heap_sort(arr)
-print("(Heap Sort):", sorted_arr)  # -> (Heap Sort): [11, 12, 22, 25, 64]
+print("(Heap Sort):", sorted_arr)                             # -> (Heap Sort): [11, 12, 22, 25, 64]
+__import__('sys').stdout.write(f'(Heap Sort): {sorted_arr}')  # -> (Heap Sort): [11, 12, 22, 25, 64]
 """
 
 
 
 # 7) Написать Тим-сорт (TimSort)
 # Время: O(n log n) в среднем, O(n) в лучшем случае.  Пространство: O(n)
+
 
 
 
@@ -5941,6 +5958,7 @@ def tim_sort(arr):
 arr = [64, 25, 12, 22, 11]
 sorted_arr = tim_sort(arr)
 print("(Tim Sort):", sorted_arr)  # Ожидается: (Tim Sort): [11, 12, 22, 25, 64]
+__import__('sys').stdout.write(f'(Tim Sort): {sorted_arr}')  # -> (Tim Sort): [11, 12, 22, 25, 64]
 """
 
 
@@ -5973,13 +5991,15 @@ def shell_sort(arr):
 # Пример использования
 arr = [64, 25, 12, 22, 11]
 sorted_arr = shell_sort(arr)
-print("(Shell Sort):", sorted_arr)  # -> (Shell Sort): [11, 12, 22, 25, 64]
+print("(Shell Sort):", sorted_arr)                             # -> (Shell Sort): [11, 12, 22, 25, 64]
+__import__('sys').stdout.write(f'(Shell Sort): {sorted_arr}')  # -> (Shell Sort): [11, 12, 22, 25, 64]
 """
 
 
 
 # 9) Написать Сортировка битом (Radix Sort)
 # Время: O(nk), где k — количество разрядов.  Пространство: O(n + k)
+
 
 
 
@@ -6016,7 +6036,8 @@ def radix_sort(arr):
 # Пример использования
 arr = [64, 25, 12, 22, 11]
 sorted_arr = radix_sort(arr)
-print("(Radix Sort):", sorted_arr)  # -> (Radix Sort): [11, 12, 22, 25, 64]
+print("(Radix Sort):", sorted_arr)                             # -> (Radix Sort): [11, 12, 22, 25, 64]
+__import__('sys').stdout.write(f'(Radix Sort): {sorted_arr}')  # -> (Radix Sort): [11, 12, 22, 25, 64]
 """
 
 
@@ -6051,7 +6072,7 @@ def counting_sort(arr):                          def simple_counting_sort(k, n, 
 # Пример использования                           max_val = max(arr) + 1  # максимальное значение + 1  
 arr = [64, 25, 12, 22, 11]                       sorted_arr = simple_counting_sort(max_val, len(arr), arr)     
 sorted_arr = counting_sort(arr)                  print("(Counting Sort):", sorted_arr) # -> [11, 12, 22, 25, 64]
-print("(Counting Sort):", sorted_arr)  # -> (Counting Sort): [11, 12, 22, 25, 64]
+__import__('sys').stdout.write(f'(Counting Sort): {sorted_arr}')  # -> (Counting Sort): [11, 12, 22, 25, 64]      <-----
 """
 
 
@@ -6105,7 +6126,8 @@ def bucket_sort(arr):
 # Пример использования
 arr = [64, 25, 12, 22, 11]
 sorted_arr = bucket_sort(arr)
-print("(Bucket Sort):", sorted_arr)  # -> (Bucket Sort): [11, 12, 22, 25, 64]
+print("(Bucket Sort):", sorted_arr)                             # -> (Bucket Sort): [11, 12, 22, 25, 64]
+__import__('sys').stdout.write(f'(Bucket Sort): {sorted_arr}')  # -> (Bucket Sort): [11, 12, 22, 25, 64]
 """
 
 
