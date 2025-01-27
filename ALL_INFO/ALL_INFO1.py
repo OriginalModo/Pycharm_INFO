@@ -16582,4 +16582,9 @@ print(f'asizeof   ():         {asizeof.asizeof(())} байт')        # -> asize
 
  SyntaxWarning: invalid escape sequence - ошибка связанная с многострочной строкой используем r перед строкой r''' '''
 
+ Посмотреть номер строки и сколько символов Go to Line:Column Наводим снизу там где надпись  CRLF UTF Python 3.12 master
+
+
+
+
 """
