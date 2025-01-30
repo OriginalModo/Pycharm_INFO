@@ -5103,7 +5103,13 @@ print(*res if sum(res) < sum(res_2) else *res_2)   # -> SyntaxError: invalid syn
  print(recursive_sum(res))  # -> 34
  -----------------------------------------------------------------------------------------------------------------------
 
-
+ # Выберите в каких случаях результат будет FALSE    # Выберите в каких случаях результат будет TRUE
+ print(False and True)   # False                     print(False or True)    # True
+ print(not False)        # True                      print(True or True)     # True
+ print(False and False)  # False                     print(True and True)    # True
+ print(False or False)   # False                     print(True or False)    # True
+ print(False or True)    # True                      print(not True)         # False
+ print(not True)         # False
  -----------------------------------------------------------------------------------------------------------------------
 
 
