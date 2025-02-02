@@ -1275,6 +1275,31 @@ print([*range(10, 0, -1)])  # -> [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 
 
 
+
+
+# Вывести слово кит. Обратный цикл
+
+
+s = 'информатика'
+
+
+
+
+
+
+# Ответ Вывести слово кит. Обратный цикл
+"""
+s = 'информатика'
+print(s[-2:-5:-1])  # -> кит
+print(s[-2:-5])     # -> ничего не выведет
+"""
+
+
+
+
+
+
+
 # Используйте dis - Библиотека работы с Байт-кодом   import dis
 
 
@@ -5472,7 +5497,8 @@ target = 9
 
 
 
-
+print('Hello World'.count(''))  # -> 12
+print('Hello'.count(''))        # -> 6
 
 
 
@@ -5515,9 +5541,9 @@ def binary_search(arr, target):
     pass
 
 
+
 # print(binary_search(d, target))  # -> 8
 # __import__('sys').stdout.write(str(binary_search(d, target)))  # -> 8   Тоже самое
-
 
 
 
@@ -5576,6 +5602,7 @@ __import__('sys').stdout.write(str(binary_search(target, d)))  # -> 8   Тоже
 
 # Задача с собеседования
 # Написать Quick Sort/Быстрая сортировка
+
 
 
 
@@ -5672,6 +5699,8 @@ print("Отсортированный массив:", sorted_arr)  # -> Отсо
 
 
 
+
+
 # 1) Сортировка пузырьком (Bubble Sort)    Время: O(n²) в худшем и среднем случаях, O(n) в лучшем.   Пространство: O(1)
 """
 # Тоже самое                                            # Тоже самое
@@ -5706,7 +5735,6 @@ __import__('sys').stdout.write(f'(Bubble Sort): {sorted_arr}')  # -> (Bubble Sor
 
 
 
-
 # 2) Сортировка выбором (Selection Sort)  Время: O(n²) во всех случаях.   Пространство: O(1)
 """
 def selection_sort(arr):
@@ -5730,6 +5758,7 @@ __import__('sys').stdout.write(f'(Selection Sort): {sorted_arr}')  # -> (Selecti
 
 # 3) Написать Сортировку вставками (Insertion Sort)
 # Время: O(n²) в худшем случае, O(n) в лучшем.   Пространство: O(1)
+
 
 
 
@@ -5857,7 +5886,6 @@ __import__('sys').stdout.write(f'(Merge Sort): {sorted_arr}')  # -> (Merge Sort)
 
 
 
-
 # 6) Пирамидальная сортировка (Heap Sort)     Время: O(n log n) во всех случаях.  Пространство: O(1)
 """
 def heapify(arr, n, i):
@@ -5892,7 +5920,6 @@ __import__('sys').stdout.write(f'(Heap Sort): {sorted_arr}')  # -> (Heap Sort): 
 
 # 7) Написать Тим-сорт (TimSort)
 # Время: O(n log n) в среднем, O(n) в лучшем случае.  Пространство: O(n)
-
 
 
 
@@ -6051,6 +6078,7 @@ __import__('sys').stdout.write(f'(Radix Sort): {sorted_arr}')  # -> (Radix Sort)
 
 
 
+
 # 10) Сортировка подсчётом (Counting Sort)  Время: O(n + k), где k — максимальное значение в массиве. Пространство: O(k)
 """
 Отличие заключается в том, сохраняется ли порядок одинаковых элементов после сортировки.  УСТРОЙЧИВАЯ vs НЕ УСТРОЙЧИВАЯ  
@@ -6071,7 +6099,8 @@ def counting_sort(arr):                          def simple_counting_sort(k, n, 
                                                  arr = [64, 25, 12, 22, 11]     
 # Пример использования                           max_val = max(arr) + 1  # максимальное значение + 1  
 arr = [64, 25, 12, 22, 11]                       sorted_arr = simple_counting_sort(max_val, len(arr), arr)     
-sorted_arr = counting_sort(arr)                  print("(Counting Sort):", sorted_arr) # -> [11, 12, 22, 25, 64]
+sorted_arr = counting_sort(arr)                  print("(Simple Counting Sort):", sorted_arr) # -> [11, 12, 22, 25, 64]
+print("(Counting Sort):", sorted_arr)                             # -> (Counting Sort): [11, 12, 22, 25, 64]
 __import__('sys').stdout.write(f'(Counting Sort): {sorted_arr}')  # -> (Counting Sort): [11, 12, 22, 25, 64]      <-----
 """
 
