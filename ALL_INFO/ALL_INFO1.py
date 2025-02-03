@@ -10604,6 +10604,10 @@ fact(30)
  Используя tuple() встроенный:                                       a_tuple = tuple()  или  a_tuple = tuple(iterable)
  Создаём кортеж: (), tuple(), tuple('foobar'), tuple(('a', 'b', 'foo')), tuple(['a', 'b', 'foo']),  tuple({'a', 'b', 'foo'})
 
+ # Создание кортежа (Добавляем запятую)
+ res = [1, 2, 3],
+ print(res)  # -> ([1, 2, 3],)
+
  a = (100)   # Создание int    <-----
  b = (100,)  # Создание tuple  <-----
  print(type(a)) # -> <class 'int'>
@@ -16596,7 +16600,7 @@ print(f'asizeof   ():         {asizeof.asizeof(())} байт')        # -> asize
 
  Посмотреть номер строки и сколько символов Go to Line:Column Наводим снизу там где надпись  CRLF UTF Python 3.12 master
 
-
+ Настройка Deployment -  Tools -> Deployment -> Configuration -> +
 
 
 """
