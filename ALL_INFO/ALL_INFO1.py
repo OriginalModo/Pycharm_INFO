@@ -16512,6 +16512,7 @@ print(f'asizeof   ():         {asizeof.asizeof(())} байт')        # -> asize
 
  --- Горячие клавиши PyCharm ---
 
+ Перейти где определена      Ctrl + B
  Окружить код/выражение      Ctrl + Alt + T
  Замена в тексте             Ctrl + R
  Замена во всех файлах       Ctrl + Shift + R
