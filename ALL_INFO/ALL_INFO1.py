@@ -6301,6 +6301,8 @@ with open('my_testik.txt', mode='r') as file: # -> режимы:   w, w+, wb, wb
  работу с чистым состоянием репозитория.
 
 
+ Посмотреть изменения файла - Нажимаем на файлик и выбираем Show diff
+
   -- cherry-picking --
  В GitLab (и Git) **cherry-picking** — это процесс выбора отдельных коммитов из одной ветки и применения их в другую ветку.
  Это позволяет перенести конкретные изменения или исправления без слияния всей ветки. Обычно используется для быстрого
@@ -16602,6 +16604,8 @@ print(f'asizeof   ():         {asizeof.asizeof(())} байт')        # -> asize
  Посмотреть номер строки и сколько символов Go to Line:Column Наводим снизу там где надпись  CRLF UTF Python 3.12 master
 
  Настройка Deployment -  Tools -> Deployment -> Configuration -> +
+
+ Если подчеркивает серым наводим читаем подсказки - Method 'your_method' may be static   - Значит сделать @staticmethod
 
 
 """
